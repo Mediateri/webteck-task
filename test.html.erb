@@ -17,11 +17,11 @@
       <input type="submit" name="submit" >
     </form>
 
-    <% result = connection.exec("select date, weight, give_for,quality from crops where give_for='自家消費' and weight =44") %>
+    <% result = connection.exec("select date, weight, give_for from crops where not give_for='自家消費';") %>
     <% date = [] %>
 
     <% result.each do |record| %>
-      <%  date << "Size of bitter gourd: #{record ["weight"]} Sold to: #{record ["give_for"]} and quality is #{record ["quality"]}" %>
+      <%  date << "Size of bitter gourd: #{record ["weight"]} Sold to: #{record ["give_for"]}" %>
     <% end %>
 
     <form action="goya.cgi" method="POST">
