@@ -12,7 +12,7 @@
     <% connection.internal_encoding = "UTF-8" %>
 
     <% result = connection.exec("select date, weight, give_for from crops where not give_for='自家消費';") %>
-    <% result1 = connection.exec("select date, weight, give_for from crops where not give_for='自家消費' and quality='f';") %>
+    <% result1 = connection.exec("select date, weight, give_for from crops where  quality='f';") %>
     <% date = [] %>
     <% date1 = [] %>
     <% result.each do |record| %>
